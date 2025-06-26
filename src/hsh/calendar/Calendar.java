@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 //들여쓰기 자동정렬 : ctrl, shift + f
 public class Calendar {
+	private final int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	
+	public int maxDaysOfMonth(int m) {
+		return maxDays[m-1];
+	}
+	
 	public static void main(String[] args) {
 		
 //		System.out.println("Hello, Calendar!");
@@ -15,11 +21,11 @@ public class Calendar {
 //		System.out.println("22 23 24 25 26 27 28");
 		
 		System.out.println("달을 입력하세요.");
+		Calendar cal = new Calendar();
 		Scanner sc = new Scanner(System.in);
 		int m = sc.nextInt();
 		
-		int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		System.out.printf("%d월은 %d일까지 있습니다.\n", m, maxDays[m-1]);
+		System.out.printf("%d월은 %d일까지 있습니다.\n", m, cal.maxDaysOfMonth(m));
 		
 		sc.close();
 	}
