@@ -9,16 +9,22 @@ public class ForMaxDays {
 		return maxDays[m-1];
 		}
 	public static void main(String[] args) {
+		
+		String PROMPT = "cal> ";
 		Scanner sc = new Scanner(System.in);
 		ForMaxDays fmd = new ForMaxDays();
 		
-		System.out.println("반복횟수를 입력하세요.");
-		int repeat = sc.nextInt();
-		
-		for (int i = 0; i < repeat; i++) {
+		int m = 1;
+		while (true) {
 			System.out.println("달을 입력하세요.");
-			int m = sc.nextInt();
-			
+			System.out.print(PROMPT);
+			m = sc.nextInt();
+			if(m == -1) {
+				break;
+			}
+			if(m > 12) {
+				continue;
+			}
 			System.out.printf("%d월은 %d일까지 있습니다.\n", m, fmd.maxDaysOfMonth(m));
 			}
 		
