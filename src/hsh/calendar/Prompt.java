@@ -2,8 +2,8 @@ package hsh.calendar;
 
 import java.util.Scanner;
 
-public class ForMaxDays {
-	private final int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+public class Prompt {
+private final int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	
 	public int maxDaysOfMonth(int m) {
 		return maxDays[m-1];
@@ -35,8 +35,9 @@ public class ForMaxDays {
 			if(m > 12) {
 				continue;
 			}
-			System.out.printf("%d월은 %d일까지 있습니다.\n", m, fmd.maxDaysOfMonth(m));
+//			System.out.printf("%d월은 %d일까지 있습니다.\n", m, fmd.maxDaysOfMonth(m));
 			
+			fmd.printCalendar();
 			}
 		
 		
