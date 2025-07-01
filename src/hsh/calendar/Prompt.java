@@ -8,7 +8,7 @@ public class Prompt {
 	
 	public void runPrompt() {
 		Scanner sc = new Scanner(System.in);
-		ForMaxDays fmd = new ForMaxDays();
+		Calendar cal = new Calendar();
 		
 		int m = 1;
 		
@@ -22,8 +22,7 @@ public class Prompt {
 			if(m > 12) {
 				continue;
 			}
-			System.out.printf("%d월은 %d일까지 있습니다.\n", m, fmd.maxDaysOfMonth(m));
-			
+			cal.printCalendar(m);
 		}
 		
 		System.out.println("프로그램 종료");
@@ -31,7 +30,8 @@ public class Prompt {
 	}
 	
 	public static void main(String[] args) {
-		
+		Prompt p = new Prompt();
+		p.runPrompt();
 		
 	}
 }
