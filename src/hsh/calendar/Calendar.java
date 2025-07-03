@@ -1,7 +1,5 @@
 package hsh.calendar;
 
-import java.util.Scanner;
-
 //들여쓰기 자동정렬 : ctrl, shift + f
 public class Calendar {
 	private final int[] max_Days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -22,35 +20,37 @@ public class Calendar {
 		}
 		
 	}
-	public void printCalendar(int year, int m) {
+	public void printCalendar(int year, int m, int weekday) {
 		System.out.printf("<<%3d>>\n", m);
 		System.out.println("일  월  화  수  목  금  토");
 		System.out.println("--------------------");	
 		
+		//print blank space
+		for(int i = 0; i < weekday; i++) {
+			System.out.print("   ");
+		}
 		int maxDay = maxDaysOfMonth(year, m);
+		int count = 7 - weekday;
+		int delim = (count < 7) ? count : 0;
+//		if (count > 7) {
+//			delim = count;
+//		}else {
+//			delim = 0;
+//		}
 		
-		for(int i = 1; i <= maxDay; i++) {
+		//print first line
+		for(int i = 1; i <= count; i++) {
+			System.out.printf("%3d", i);
+		}
+		System.out.println();
+		
+		count++;
+		for(int i = count; i <= maxDay; i++) {
 			System.out.printf("%3d",i);
-			if(i %7 == 0)
+			if(i %7 == delim)
 				System.out.println();
 		}
 		System.out.println();
-//		System.out.println("1  2  3  4  5  6  7");
-//		System.out.println("8  9  10 11 12 13 14");
-//		System.out.println("15 16 17 18 19 20 21");
-//		System.out.println("22 23 24 25 26 27 28");
-	}
-	
-	public static void main(String[] args) {
-		
-
-		
-		System.out.println("달을 입력하세요.");
-		Calendar cal = new Calendar();
-		Scanner sc = new Scanner(System.in);
-		int m = sc.nextInt();
-		
-		
-		sc.close();
+		System.out.println();
 	}
 }
