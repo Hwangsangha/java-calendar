@@ -53,4 +53,41 @@ public class Calendar {
 		System.out.println();
 		System.out.println();
 	}
+	
+	public void printCalendar(int year, int m) {
+		System.out.printf("   <<%d년% 3d월>>\n", year, m);
+		System.out.println("일  월  화  수  목  금  토");
+		System.out.println("--------------------");	
+		
+		//get weekday automatically
+		int weekday = 0;
+		
+		//print blank space
+		for(int i = 0; i < weekday; i++) {
+			System.out.print("   ");
+		}
+		int maxDay = maxDaysOfMonth(year, m);
+		int count = 7 - weekday;
+		int delim = (count < 7) ? count : 0;
+//		if (count > 7) {
+//			delim = count;
+//		}else {
+//			delim = 0;
+//		}
+		
+		//print first line
+		for(int i = 1; i <= count; i++) {
+			System.out.printf("%3d", i);
+		}
+		System.out.println();
+		
+		count++;
+		for(int i = count; i <= maxDay; i++) {
+			System.out.printf("%3d",i);
+			if(i %7 == delim)
+				System.out.println();
+		}
+		System.out.println();
+		System.out.println();
+	}
 }
