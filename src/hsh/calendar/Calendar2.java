@@ -2,8 +2,8 @@ package hsh.calendar;
 
 //들여쓰기 자동정렬 : ctrl, shift + f
 public class Calendar2 {
-	private final int[] max_Days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	private final int[] LEAP_MAX_DAYS = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private final int[] max_Days = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private final int[] LEAP_MAX_DAYS = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	
 	public boolean isLeapYear(int year) {
 		if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
@@ -14,9 +14,9 @@ public class Calendar2 {
 	
 	public int maxDaysOfMonth(int year, int m) {
 		if(isLeapYear(year)) {
-			return LEAP_MAX_DAYS[m - 1];
+			return LEAP_MAX_DAYS[m];
 		} else {
-			return max_Days[m-1];
+			return max_Days[m];
 		}
 		
 	}
