@@ -39,7 +39,14 @@ public class Calendar2 {
 //			delim = count;
 //		}else {
 //			delim = 0;
-//		}
+//	public void printCalendar(int year, int m, int weekday) {
+//		System.out.printf("<<%3d>>\n", m);
+//		System.out.println("일  월  화  수  목  금  토");
+//		System.out.println("--------------------");	
+//		
+//		//print blank space
+//		for(int i = 0; i < weekday; i++) {
+//			System.out.print("   ");
 		
 		//print first line
 		for(int i = 1; i <= count; i++) {
@@ -57,6 +64,7 @@ public class Calendar2 {
 		System.out.println();
 	}
 	*/
+
 	
 	public void printCalendar(int year, int m) {
 		System.out.printf("   <<%d년% 3d월>>\n", year, m);
@@ -98,11 +106,11 @@ public class Calendar2 {
 	private int getWeekDay(int year, int m, int day) {
 		int syear = 1970;
 		final int standard_weekday = 3; //목요일
-		
+
 		int count = 0;
 		
 		for (int i = syear; i <= year; i++) {
-			int delta = isLeapYear(year) ? 366 : 365;
+			int delta = isLeapYear(i) ? 366 : 365;
 			count += delta;
 		}
 		//System.out.println(count);
@@ -121,9 +129,8 @@ public class Calendar2 {
 	//simple test code here
 	public static void main(String[] args) {
 		Calendar2 c = new Calendar2();
-		c.getWeekDay(1970, 5, 1);
-		c.getWeekDay(1970, 5, 1);
-		c.getWeekDay(1970, 5, 1);
-		c.getWeekDay(1970, 5, 1);
+		System.out.println(c.getWeekDay(1970, 1, 1) == 0);
+		System.out.println(c.getWeekDay(1970, 2, 1) == 31);
+		System.out.println(c.getWeekDay(1970, 3, 1) == 59);
 	}
 }
