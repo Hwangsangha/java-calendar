@@ -34,7 +34,6 @@ public class Prompt2 {
 		
 		int m = 1;
 		int year = 2025;
-		int weekday = 0;
 		
 		while (true) {
 			System.out.println("년도를 입력하세요.(exit: -1)");

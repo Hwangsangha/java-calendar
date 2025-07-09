@@ -1,5 +1,7 @@
 package hsh.calendar;
 
+import java.util.Iterator;
+
 //들여쓰기 자동정렬 : ctrl, shift + f
 public class Calendar2 {
 	private final int[] max_Days = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -20,6 +22,7 @@ public class Calendar2 {
 		}
 		
 	}
+	/*
 	public void printCalendar(int year, int m, int weekday) {
 		System.out.printf("<<%3d>>\n", m);
 		System.out.println("일  월  화  수  목  금  토");
@@ -53,10 +56,11 @@ public class Calendar2 {
 		System.out.println();
 		System.out.println();
 	}
+	*/
 	
 	public void printCalendar(int year, int m) {
 		System.out.printf("   <<%d년% 3d월>>\n", year, m);
-		System.out.println("일  월  화  수  목  금  토");
+		System.out.println(" SU MO TU WE TH FR SA");
 		System.out.println("--------------------");	
 		
 		//get weekday automatically
@@ -93,9 +97,7 @@ public class Calendar2 {
 
 	private int getWeekDay(int year, int m, int day) {
 		int syear = 1970;
-		int Sm = 1;
-		int sday = 1;
-		int standardsweekday = 3; //목요일
+		final int standard_weekday = 3; //목요일
 		
 		int count = 0;
 		
@@ -103,8 +105,16 @@ public class Calendar2 {
 			int delta = isLeapYear(year) ? 366 : 365;
 			count += delta;
 		}
-		System.out.println(count);
-		return 0;
+		//System.out.println(count);
+		for(int i = 0; i < m; i++) {
+			int delta = maxDaysOfMonth(year, i);
+			count += delta;
+		}
+		
+		count += day;
+		
+		int weekday = (count + standard_weekday) % 7;
+		return weekday;
 			
 	}
 	
