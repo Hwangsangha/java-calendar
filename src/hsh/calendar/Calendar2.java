@@ -122,5 +122,8 @@ public class Calendar2 {
 	public static void main(String[] args) {
 		Calendar2 c = new Calendar2();
 		c.getWeekDay(1970, 5, 1);
+		c.getWeekDay(1970, 5, 1);
+		c.getWeekDay(1970, 5, 1);
+		c.getWeekDay(1970, 5, 1);
 	}
 }
