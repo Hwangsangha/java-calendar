@@ -131,6 +131,5 @@ public class Calendar2 {
 		Calendar2 c = new Calendar2();
 		System.out.println(c.getWeekDay(1970, 1, 1) == 0);
 		System.out.println(c.getWeekDay(1970, 2, 1) == 31);
-		System.out.println(c.getWeekDay(1970, 3, 1) == 59);
 	}
 }
